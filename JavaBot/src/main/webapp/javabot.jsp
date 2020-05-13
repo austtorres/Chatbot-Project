@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	The website is working
+	This displays to the local server port 8080
 </body>
 </html>
 
