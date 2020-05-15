@@ -1,15 +1,14 @@
 package com.JavaBot.demo;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.SystemColor;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EtchedBorder;
+import javax.swing.JTextArea;
 
 /**
  * The GUI of the JavaBot application. This displays the chatbot including the
@@ -22,50 +21,42 @@ import javax.swing.border.EtchedBorder;
 public class JavaBotGUI extends JFrame {
 
 	private Color bgcolor = new Color(195, 246, 247);
+	private Color tempColor = new Color(0x4484ce);
 
 	public JavaBotGUI() {
 		super("JavaBot");
 		
 		// Click X to close
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(800, 600);
-		this.setResizable(false);
+		this.setSize(398, 700);
 		
 		// Set background with getContentPane
-		this.getContentPane().setBackground(bgcolor);
+		this.getContentPane().setBackground(tempColor);
 		
 		// absolute positioning
 		this.getContentPane().setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBackground(tempColor);
 		scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.RAISED, SystemColor.activeCaption, SystemColor.textHighlight));
-		scrollPane.setBounds(334, 47, 322, 368);
+		scrollPane.setBounds(0, 0, 384, 504);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		getContentPane().add(scrollPane);
 		
+		JTextArea textArea = new JTextArea();
+		scrollPane.setViewportView(textArea);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(SystemColor.activeCaption);
 		panel.setForeground(SystemColor.activeCaption);
 		panel.setBorder(new EtchedBorder(EtchedBorder.RAISED, SystemColor.activeCaption, SystemColor.textHighlight));
-		panel.setBounds(334, 414, 322, 117);
+		panel.setBounds(0, 503, 384, 159);
 		getContentPane().add(panel);
-		
-		JTextPane txtpnJavabot = new JTextPane();
-		txtpnJavabot.setForeground(new Color(139, 69, 19));
-		txtpnJavabot.setBackground(new Color(255, 255, 204));
-		txtpnJavabot.setFont(new Font("Corbel", Font.PLAIN, 42));
-		txtpnJavabot.setText("JavaBot");
-		txtpnJavabot.setEditable(false);
-		txtpnJavabot.setBounds(53, 82, 150, 66);
-		getContentPane().add(txtpnJavabot);
 	
-		
 		// Align window center of screen
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
-		
 	}
 
 	public static void main(String[] args) {
