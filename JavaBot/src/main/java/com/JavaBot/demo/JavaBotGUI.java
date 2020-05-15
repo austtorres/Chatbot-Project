@@ -1,14 +1,14 @@
 package com.JavaBot.demo;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.SystemColor;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextPane;
+import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EtchedBorder;
-import javax.swing.JTextArea;
 
 /**
  * The GUI of the JavaBot application. This displays the chatbot including the
@@ -20,8 +20,8 @@ import javax.swing.JTextArea;
 @SuppressWarnings("serial")
 public class JavaBotGUI extends JFrame {
 
-	private Color bgcolor = new Color(195, 246, 247);
-	private Color tempColor = new Color(0x4484ce);
+	private Color tempColor = new Color(0x99D3DF);
+	private Color bottomColor = new Color(0xffa552);
 
 	public JavaBotGUI() {
 		super("JavaBot");
@@ -37,7 +37,6 @@ public class JavaBotGUI extends JFrame {
 		this.getContentPane().setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBackground(tempColor);
 		scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.RAISED, SystemColor.activeCaption, SystemColor.textHighlight));
 		scrollPane.setBounds(0, 0, 384, 504);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -45,14 +44,24 @@ public class JavaBotGUI extends JFrame {
 		getContentPane().add(scrollPane);
 		
 		JTextArea textArea = new JTextArea();
+		textArea.setBackground(tempColor);
 		scrollPane.setViewportView(textArea);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(SystemColor.activeCaption);
+		panel.setBackground(bottomColor);
 		panel.setForeground(SystemColor.activeCaption);
 		panel.setBorder(new EtchedBorder(EtchedBorder.RAISED, SystemColor.activeCaption, SystemColor.textHighlight));
 		panel.setBounds(0, 503, 384, 159);
 		getContentPane().add(panel);
+		
+		JButton button1 = new JButton("One");
+		panel.add(button1);
+		
+		JButton button2 = new JButton("Two");
+		panel.add(button2);
+		
+		JButton button3 = new JButton("Three");
+		panel.add(button3);
 	
 		// Align window center of screen
 		this.setLocationRelativeTo(null);
