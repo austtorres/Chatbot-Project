@@ -9,6 +9,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EtchedBorder;
+import java.awt.FlowLayout;
 
 /**
  * The GUI of the JavaBot application. This displays the chatbot including the
@@ -20,8 +21,8 @@ import javax.swing.border.EtchedBorder;
 @SuppressWarnings("serial")
 public class JavaBotGUI extends JFrame {
 
-	private Color tempColor = new Color(0x99D3DF);
-	private Color bottomColor = new Color(0xffa552);
+	public static final Color tempColor = new Color(0x99D3DF);
+	public static final Color bottomColor = new Color(0xffa552);
 
 	public JavaBotGUI() {
 		super("JavaBot");
@@ -44,6 +45,7 @@ public class JavaBotGUI extends JFrame {
 		getContentPane().add(scrollPane);
 		
 		JTextArea textArea = new JTextArea();
+		textArea.setLineWrap(true);
 		textArea.setBackground(tempColor);
 		scrollPane.setViewportView(textArea);
 		
@@ -54,7 +56,9 @@ public class JavaBotGUI extends JFrame {
 		panel.setBounds(0, 503, 384, 159);
 		getContentPane().add(panel);
 		
-		JButton button1 = new JButton("One");
+		RoundedButton button1 = new RoundedButton("Hello World, I like to drink lots of java while coding this.");
+		button1.setForeground(Color.BLACK);
+		button1.setBackground(Color.WHITE);
 		panel.add(button1);
 		
 		JButton button2 = new JButton("Two");
